@@ -1,0 +1,103 @@
+:root {
+  /* Font Families */
+  --font-headline-en: 'Merriweather', Georgia, serif;
+  --font-headline-ar: 'Tajawal', Arial, sans-serif;
+  --font-body-en: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body-ar: 'Cairo', Arial, sans-serif;
+  
+  /* Font Weights (Variable Font Axis) */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+  
+  /* Font Sizes - Responsive Scale */
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 1.6rem + 1vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 1.9rem + 1.4vw, 3rem);
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+}
+
+/* Typography Classes */
+.headline-1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.headline-2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+}
+
+.headline-3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.body-large {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+}
+
+.body-regular {
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+.body-small {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+}
+
+/* Language-specific typography */
+[lang="ar"] .headline-1,
+[lang="ar"] .headline-2,
+[lang="ar"] .headline-3 {
+  font-family: var(--font-headline-ar);
+  letter-spacing: var(--tracking-wide);
+}
+
+[lang="ar"] .body-large,
+[lang="ar"] .body-regular,
+[lang="ar"] .body-small {
+  font-family: var(--font-body-ar);
+}
+
+[lang="en"] .headline-1,
+[lang="en"] .headline-2,
+[lang="en"] .headline-3 {
+  font-family: var(--font-headline-en);
+}
+
+[lang="en"] .body-large,
+[lang="en"] .body-regular,
+[lang="en"] .body-small {
+  font-family: var(--font-body-en);
+}

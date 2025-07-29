@@ -1,0 +1,513 @@
+:root {
+  --primary: #841617;
+  --primary-dark: #66101a;
+  --headline: #1a1a1a;
+  --text: #222;
+  --border: #e5e7eb;
+  --meta: #666;
+  --bg: #fff;
+}
+
+/* ======= General Base Styling ======= */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Source Sans Pro", "Open Sans", Arial, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+html[lang="ar"] body {
+  direction: rtl;
+  font-family: "Noto Sans Arabic", "Cairo", "Tajawal", Arial, sans-serif;
+}
+
+/* ======= Headings ======= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Merriweather", "Georgia", serif;
+  color: var(--headline);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 0;
+}
+
+/* ======= Links ======= */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ======= Header and Navigation ======= */
+header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 0 0.5rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* OLD Navigation (kept for fallback, but NOT used by new buttons)
+nav ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  flex-wrap: wrap;
+  margin: 0;
+}
+nav ul li {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #e8f4f8;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+nav ul li:hover { 
+  background: #d1ecf1; 
+  transform: translateY(-2px);
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+*/
+
+/* ======= MODERN NAVIGATION BUTTONS ======= */
+.modern-nav {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  margin: 1.4rem 0 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.modern-nav li {
+  display: flex;
+  align-items: center;
+}
+.modern-nav-btn {
+  display: flex;
+  align-items: center;
+  background: #f6fafd;
+  border: 1.5px solid #e5e7eb;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 100px;
+  padding: 10px 22px 10px 22px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 1.5px 10px #1175ad13;
+  transition: background 0.15s, box-shadow 0.18s, color 0.15s,
+    border-color 0.18s, transform 0.16s;
+}
+.modern-nav-btn:hover,
+.modern-nav-btn:focus {
+  color: #fff;
+  background: linear-gradient(to right, #1175ad 85%, #004264 100%);
+  border-color: #1175ad;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 24px #1175ad49;
+  text-decoration: none;
+}
+.search-btn {
+  background: #eef6fa;
+  border: 1.5px solid #d7e6ef;
+  color: #1175ad;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+.search-btn:hover,
+.search-btn:focus {
+  background: linear-gradient(95deg, #1175ad11, #eaf3fa 80%);
+  color: #1175ad;
+  border-color: #1175ad;
+}
+
+@media (max-width: 600px) {
+  .modern-nav {
+    gap: 0.5rem;
+  }
+  .modern-nav-btn {
+    font-size: 0.98rem;
+    padding: 7px 12px;
+  }
+}
+
+/* ======= Hero Lead Section ======= */
+.hero-lead {
+  width: 95%;
+  max-width: 900px;
+  margin: 2em auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+.hero-lead img {
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(50, 0, 20, 0.06);
+  max-width: 350px;
+}
+.hero-lead-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.66em;
+}
+.hero-lead h1 {
+  font-size: 2.3rem;
+  color: var(--primary);
+  margin: 0;
+}
+.hero-lead .meta {
+  color: var(--meta);
+  font-size: 1rem;
+}
+
+/* ======= Main & Grid Layouts ======= */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+/* Article Cards Grid */
+.articles-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2em 0 2em 0;
+}
+
+/* ======= Article Cards ======= */
+.article-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #84161712;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+.article-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-4px) scale(1.02);
+}
+.article-card img {
+  border-radius: 6px;
+  max-width: 100%;
+}
+.article-card h2 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  font-family: "Merriweather", "Georgia", serif;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.article-card .meta {
+  color: var(--meta);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.article-excerpt {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #555;
+  text-align: left;
+}
+
+/* ======= Article Content ======= */
+.article-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.article-content .content h1,
+.article-content .content h2,
+.article-content .content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.article-content .content p,
+.article-full-content p {
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.tags {
+  margin-top: 1rem;
+}
+.tag {
+  background: #e8f4f8;
+  color: #0066cc;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+/* ======= Details/Read More Section ======= */
+details summary {
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  color: #0066cc;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+details summary:hover {
+  text-decoration: underline;
+}
+details[open] summary {
+  margin-bottom: 1rem;
+}
+
+/* ======= Images ======= */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* ======= Debug Info (for development) ======= */
+.debug-info {
+  background: #f0f0f0;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ======= RTL (Arabic) Support ======= */
+html[lang="ar"] body {
+  direction: rtl;
+  font-family: "Noto Sans Arabic", "Cairo", "Tajawal", Arial, sans-serif;
+}
+html[lang="ar"] header,
+html[lang="ar"] main,
+html[lang="ar"] nav,
+html[lang="ar"] .hero-lead,
+html[lang="ar"] .articles-grid {
+  text-align: right !important;
+  direction: rtl !important;
+}
+html[lang="ar"] .modern-nav {
+  flex-direction: row-reverse;
+}
+html[lang="ar"] nav ul {
+  flex-direction: row-reverse;
+}
+html[lang="ar"] nav ul li,
+html[lang="ar"] .modern-nav li {
+  font-family: "Noto Sans Arabic", Arial, sans-serif;
+}
+html[lang="ar"] button {
+  text-align: center;
+}
+html[lang="ar"] main p,
+html[lang="ar"] .article-card h2,
+html[lang="ar"] .meta,
+html[lang="ar"] .article-excerpt,
+html[lang="ar"] .article-content,
+html[lang="ar"] .article-full-content p {
+  text-align: right;
+}
+
+/* ======= Breadcrumbs Styling ======= */
+.breadcrumbs {
+  margin: 1.5rem 0;
+  font-size: 1.04rem;
+  color: var(--meta);
+  /* The direction and text-align are now handled by the component's inline styles */
+}
+
+.breadcrumbs a {
+  color: var(--primary);
+  text-decoration: none;
+  /* Margins are handled by the component's inline styles */
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: var(--meta);
+  /* Margins are handled by the component's inline styles */
+}
+
+.current-breadcrumb {
+  color: #888;
+  font-weight: 600;
+}
+
+/* Remove specific RTL breadcrumb styles from here as they are now inlined in the component */
+/*
+html[lang='ar'] .breadcrumbs {
+  direction: rtl;
+  text-align: right;
+}
+
+html[lang='ar'] .breadcrumbs a {
+  margin: 0 0 0 0.25em;
+}
+
+html[lang='ar'] .breadcrumb-sep {
+  margin: 0 0.2em 0 0.2em;
+}
+*/
+
+/* ======= Responsive Adjustments ======= */
+@media (max-width: 900px) {
+  .hero-lead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 700px) {
+  main {
+    max-width: 98vw;
+    padding: 0 0.5em;
+  }
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+
+.lang-switch {
+  padding: 0.5rem 1.2rem;
+  background: #e8f4f8;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.hero-img-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2.5rem auto 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px #84161728;
+}
+.hero-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+}
+.hero-title-overlay {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 2rem 1rem 1rem 1rem;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+.hero-title-overlay h1 {
+  color: var(--primary);
+  font-family: "Merriweather", "Georgia", serif;
+  margin-bottom: 0.6rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+.hero-tagline {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.hero-img-fullwidth {
+  width: 100vw;
+  max-width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.hero-img {
+  width: 100vw;
+  max-width: 1800px;
+  min-height: 400px;
+  max-height: 75vh;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  box-shadow: 0px 8px 44px #84161714;
+}
+.hero-title-under {
+  margin: 3.5rem auto 0 auto;
+  max-width: 700px;
+  text-align: center;
+}
+.hero-title-under h1 {
+  font-size: 2.1rem;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 800;
+}
+.hero-tagline {
+  color: #444;
+  font-size: 1.18rem;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+/* Small screens */
+@media (max-width: 650px) {
+  .hero-img {
+    min-height: 180px;
+  }
+  .hero-title-under h1 {
+    font-size: 1.3rem;
+  }
+  .hero-title-under {
+    margin-top: 2rem;
+  }
+}
